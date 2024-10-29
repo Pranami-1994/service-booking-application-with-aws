@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register or Login</title>
+    <style>
+        /* Background Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+        /* Overlay for a darkened effect */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        /* Container Styling */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            max-width: 90%;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+        h1 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 24px;
+        }
+        /* Input Fields */
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        /* Button Styling */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4e54c8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #8f94fb;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        /* Link Styling */
+        .login-link {
+            margin-top: 20px;
+            color: #4e54c8;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .login-link:hover {
+            color: #8f94fb;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Register</h1>
+        <form action="{{ url_for('register') }}" method="POST" style="width: 100%;">
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="text" name="phone_no" placeholder="Phone Number" required>
+            <input type="text" name="address" placeholder="Address" required>
+            <button type="submit">Register</button>
+        </form>
+        <a href="{{ url_for('login') }}" class="login-link">Already have an account? Login here</a>
+    </div>
+
+</body>
+</html>

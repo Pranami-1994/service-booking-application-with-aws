@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://images.pexels.com/photos/5137954/pexels-photo-5137954.jpeg?auto=compress&cs=tinysrgb&w=600') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+        /* Semi-transparent overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity here */
+            z-index: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.5); /* More transparency */
+            padding: 60px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 90%;
+            z-index: 1;
+            position: relative;
+        }
+        h1 {
+            color: #000000; /* Darker black text */
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+        a {
+            display: inline-block;
+            text-decoration: none;
+            background: #4e54c8;
+            color: #000000; /* Darker black text */
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        a:hover {
+            background: #8f94fb;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to QuickFixHub</h1>
+        <a href="{{url_for('register')}}">Proceed to Booking</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .container {
+            padding: 20px;
+            width: 400px;
+            background-color: rgba(255, 255, 255, 0.8); /* Made the container slightly transparent */
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center; /* Centered text within the container */
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #0056b3; /* Darker color for better visibility */
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .payment-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .payment-option {
+            margin-bottom: 20px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            transition: background-color 0.3s ease;
+        }
+        .payment-option:hover {
+            background-color: #e2e6ea;
+        }
+        .payment-option input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #007bff; /* Change radio button color */
+        }
+        .payment-option label {
+            font-size: 18px;
+            flex-grow: 1;
+            color: #333; /* Darker text color */
+        }
+        .confirm-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 25px;
+            transition: background-color 0.3s ease;
+        }
+        .confirm-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Select Payment Method</h1>
+
+    <form action="{{ url_for('confirm_payment') }}" method="POST">
+        <div class="payment-details">
+            <div class="payment-option">
+                <input type="radio" id="credit-card" name="payment" value="credit-card" checked>
+                <label for="credit-card">Credit Card</label>
+            </div>
+        
+            <div class="payment-option">
+                <input type="radio" id="debit-card" name="payment" value="debit-card">
+                <label for="debit-card">Debit Card</label>
+            </div>
+        
+            <div class="payment-option">
+                <input type="radio" id="paypal" name="payment" value="paypal">
+                <label for="paypal">PayPal</label>
+            </div>
+        
+            <div class="payment-option">
+                <input type="radio" id="net-banking" name="payment" value="net-banking">
+                <label for="net-banking">Net Banking</label>
+            </div>
+        
+            <div class="payment-option">
+                <input type="radio" id="upi" name="payment" value="upi">
+                <label for="upi">UPI</label>
+            </div>
+            <a href="{{url_for('thankyou')}}" id="payment-btn" class="confirm-btn">Confirm Booking</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

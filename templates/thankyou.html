@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://images.pexels.com/photos/2866783/pexels-photo-2866783.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh; /* Full viewport height */
+            text-align: center;
+        }
+        .details {
+            margin: 20px 0;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+            padding: 40px 60px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 90%; /* Adjusted width */
+            max-width: 600px; /* Maximum width for larger screens */
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #28a745;
+            padding: 15px 30px; /* Adjusted padding for a bigger button */
+            border-radius: 5px;
+            font-size: 20px; /* Increased font size */
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+        .movieDetails {
+            margin-top: 20px;
+            font-size: 20px; /* Increased font size for details */
+            line-height: 1.5; /* Added line height for better readability */
+        }
+        .movieImage {
+            border-radius: 15px;
+            object-fit: cover;
+            width: 200px;
+            height: 250px;
+            margin-right: 20px; /* Added margin for spacing */
+        }
+        .details-row {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            margin-bottom: 15px; /* Space between details */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Ticket</h1>
+        <div id="bookingdetails" class="details">
+            <!-- Uncomment the image section if you have an image URL to include -->
+            <!-- <img src="{{image}}" class="movieImage"> -->
+            <div class="movieDetails">
+                <div class="details-row">
+                    <p><strong>Name:</strong> <span>{{booking_details.user_name}}</span></p>
+                </div>
+                <div class="details-row">
+                    <p><strong>Address:</strong> <span>{{booking_details.address}}</span></p>
+                </div>
+                <div class="details-row">
+                    <p><strong>Phone number:</strong> <span>{{booking_details.phone_number}}</span></p>
+                </div>
+                <div class="details-row">
+                    <p><strong>Service:</strong> <span>{{booking_details.service}}</span></p>
+                </div>
+                <div class="details-row">
+                    <p><strong>Date:</strong> <span>{{booking_details.date}}</span></p>
+                </div>
+            </div>
+        </div>
+        <a href="{{url_for('home')}}" class="button">Back to Home</a>
+    </div>
+
+    <script>
+        // Get the current date
+        const today = new Date();
+        const formattedDate = today.toLocaleDateString("en-IN", {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        });
+
+        // Display the date in the span
+        // Make sure to add the relevant HTML element in your code to display the current date
+        // document.getElementById("current-date").textContent = formattedDate;
+    </script>
+</body>
+</html>
